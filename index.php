@@ -146,32 +146,47 @@
      
   
      ?>
+</select>
 
 
-    <div class="griglia">
-
-    <?php 
-    
-    for($i=0; $i < count($dischi); $i++){
-        if($genereScelto == "tutte" || $genereScelto == $dischi[$i]["genere"]){
-            
-        }
-    }
-    
-    ?>
-        
-    
-    
-    <div>
-
-
-   </select>
    </form>
-
-   </div>
 
 
  </div>
+
+</div>
+
+
+<div class="griglia">
+
+<?php 
+
+for($i=0; $i< count($dischi);$i++){
+
+if($genereScelto == "tutte"|| $genereScelto == $dischi[$i]["genere"]){
+
+echo"<div class='card'>";
+
+ echo "<img src=". $dischi[$i]["poster"]. ">";
+ echo "<h3> class='titoloCard' " . $dischi[$i]["titolo"] . "</h3>";
+ echo "<p> class='artistaCard' ".$dischi[$i]["artista"] ."</p>";
+ echo "<p> class='genereAnnoCard'". $dischi[$i]["genere"].".".$dischi[$i]["anno"]."</p>";
+
+
+ 
+
+echo "</div";
+
+}}
+
+
+
+?>
+
+
+
+
+
 
 </div>
 
