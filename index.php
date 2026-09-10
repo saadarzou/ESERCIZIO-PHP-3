@@ -18,7 +18,7 @@
         "artista" => "Justin Bieber",
         "genere" => "POP",
         "anno" => 2010,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\Babycoverart.jpg"
+        "poster" => "immagini/Babycoverart.jpg"
     ],
 
     [
@@ -26,15 +26,15 @@
         "artista" => "B.O.B",
         "genere" => "POP",
         "anno" => 2010,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\artworks-000113211701-xvdmqp-t500x500.jpg"
+        "poster" => "immagini/artworks-000113211701-xvdmqp-t500x500.jpg"
     ],
-
+ 
     [
         "titolo" => "A man without Love",
         "artista" => "Engelbrt humperdinck",
         "genere" => "POP",
         "anno" => 1968,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\copertina.jpg"
+        "poster" => "immagini/copertina.jpg"
     ],
 
     [
@@ -42,7 +42,7 @@
         "artista" => "50cent",
         "genere" => "Rap",
         "anno" => 2003,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\21 question.jpg"
+        "poster" => "immagini/question.jpg"
     ],
 
     [
@@ -50,7 +50,7 @@
         "artista" => "King Von",
         "genere" => "Rap",
         "anno" => 2019,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\images.jpg"
+        "poster" => "immagini/images.jpg"
     ],
 
      [
@@ -58,7 +58,7 @@
         "artista" => "Kendrik Lamar",
         "genere" => "Rap",
         "anno" => 2017,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\humble kendrik lamar.jpg"
+        "poster" => "immagini/humble kendrik lamar.jpg"
     ],
 
      [
@@ -66,7 +66,7 @@
         "artista" => "Don Toliver",
         "genere" => "Rap",
         "anno" => 2025,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\nopole.jpg"
+        "poster" => "immagini/Nopole.jpg"
     ],
 
      [
@@ -74,7 +74,7 @@
         "artista" => "Frank Ocean",
         "genere" => "R&B",
         "anno" => 2016,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\frank ocean.jpg"
+        "poster" => "immagini/Frankocean.jpg"
     ],
 
      [
@@ -82,7 +82,7 @@
         "artista" => "Akon",
         "genere" => "R&B",
         "anno" => 2008,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\akon right nowù.jpg"
+        "poster" => "immagini/akon right nowù.jpg"
     ],
 
     [
@@ -90,7 +90,7 @@
         "artista" => "Chris Brown",
         "genere" => "R&B",
         "anno" => 2015,
-        "poster" => "C:\laragon\www\ES 3 PHP\ESERCIZIO-PHP-3\immagini\lights out.jpg"
+        "poster" => "immagini/lights out.jpg"
     ]
 ];
 
@@ -100,6 +100,8 @@
  if(isset($_GET["genere"])){
     $genereScelto = $_GET["genere"];
  }
+
+
    
 ?>
 
@@ -119,9 +121,7 @@
 
    <select name="genere" onchange="this.form.submit()">
 
-     <option value="tutte">
-        Tutti
-     </option>
+     <option value="tutte">Tutti </option>
 
      <?php 
 
@@ -135,9 +135,11 @@
      if(!in_array($dischi[$i]["genere"],$generi)){
         $generi[]=$dischi[$i]["genere"];
 
-        echo "<option value='" . $dischi[$i]["genere"] . "'>";
+               echo "<option value='" . $dischi[$i]["genere"] . "' " . ($genereScelto == $dischi[$i]["genere"] ? "selected" : "") . ">";
 
         echo $dischi[$i]["genere"];
+
+        echo "</option>";
 
      
      }
@@ -163,20 +165,26 @@
 
 for($i=0; $i< count($dischi);$i++){
 
-if($genereScelto == "tutte"|| $genereScelto == $dischi[$i]["genere"]){
+if($genereScelto == $dischi[$i]["genere"]){
 
 echo"<div class='card'>";
 
- echo "<img src=". $dischi[$i]["poster"]. ">";
- echo "<h3> class='titoloCard' " . $dischi[$i]["titolo"] . "</h3>";
- echo "<p> class='artistaCard' ".$dischi[$i]["artista"] ."</p>";
- echo "<p> class='genereAnnoCard'". $dischi[$i]["genere"].".".$dischi[$i]["anno"]."</p>";
-
-
+ echo "<img class='immagini' src='" . $dischi[$i]["poster"] . "'>";
+ echo "<h3 class='titoloCard' >" . $dischi[$i]["titolo"] . "</h3>";
+ echo "<p class='artistaCard' >".$dischi[$i]["artista"] ."</p>";
+ echo "<p class='genereAnnoCard' >". $dischi[$i]["genere"].".".$dischi[$i]["anno"]."</p>";
  
+ echo "</div>";
 
-echo "</div";
+}elseif($genereScelto == "tutte"){
+ echo"<div class='card'>";
 
+ echo "<img class='immagini' src='" . $dischi[$i]["poster"] . "'>";
+ echo "<h3 class='titoloCard' >" . $dischi[$i]["titolo"] . "</h3>";
+ echo "<p class='artistaCard' >".$dischi[$i]["artista"] ."</p>";
+ echo "<p class='genereAnnoCard' >". $dischi[$i]["genere"]."  .  ".$dischi[$i]["anno"]."</p>";
+ 
+ echo "</div>";
 }}
 
 
