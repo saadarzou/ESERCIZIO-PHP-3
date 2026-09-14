@@ -1,3 +1,4 @@
+ ```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +11,42 @@
 
 <body>
 
+    <div class="contenitore">
 
- $genereScelto="tutte";
+    <div class="header">
+
+     <h2>AJAX DISCHI JSON</h2>
+
+    <div class="faq">
+
+     <span>Genere</span>
+
+     <form>
+
+      <select id="genere">
+
+       <option value="tutte">Tutti</option>
+
+      </select>
+
+     </form>
+
+   </div>
+
+</div>
+<div class="griglia" id="griglia">
+
+</div>
+
+   </div>
+
+   <script src="index.js"></script>
+
+   </body>
+
+</html>
+```
+<!-- $genereScelto="tutte";
 
  //contolliamo se e presente un genere e se e presente lo mettiamo all'interno di genere scelto
  if(isset($_GET["genere"])){
@@ -44,27 +79,27 @@
 
 
      // creamo un array per inseruire i generi
-     $generi=[];
+   //   $generi=[];
 
-     for($i=0; $i<count($dischi);$i++){
+   //   for($i=0; $i<count($dischi);$i++){
 
-     //controlliamo se il genere e gia presente in caso non lo fosse lo aggiungiamo
-     if(!in_array($dischi[$i]["genere"],$generi)){
-        $generi[]=$dischi[$i]["genere"];
+   //   //controlliamo se il genere e gia presente in caso non lo fosse lo aggiungiamo
+   //   if(!in_array($dischi[$i]["genere"],$generi)){
+   //      $generi[]=$dischi[$i]["genere"];
 
-               echo "<option value='" . $dischi[$i]["genere"] . "' " . ($genereScelto == $dischi[$i]["genere"] ? "selected" : "") . ">";
+   //             echo "<option value='" . $dischi[$i]["genere"] . "' " . ($genereScelto == $dischi[$i]["genere"] ? "selected" : "") . ">";
 
-        echo $dischi[$i]["genere"];
+   //      echo $dischi[$i]["genere"];
 
-        echo "</option>";
+   //      echo "</option>";
 
      
-     }
+   //   }
 
-     };
+   //   };
      
   
-     ?>
+   //   ?>
 </select>
 
 
@@ -80,29 +115,6 @@
 
 <?php 
 
-for($i=0; $i< count($dischi);$i++){
-
-if($genereScelto == $dischi[$i]["genere"]){
-
-echo"<div class='card'>";
-
- echo "<img class='immagini' src='" . $dischi[$i]["poster"] . "'>";
- echo "<h3 class='titoloCard' >" . $dischi[$i]["titolo"] . "</h3>";
- echo "<p class='artistaCard' >".$dischi[$i]["artista"] ."</p>";
- echo "<p class='genereAnnoCard' >". $dischi[$i]["genere"].".".$dischi[$i]["anno"]."</p>";
- 
- echo "</div>";
-
-}elseif($genereScelto == "tutte"){
- echo"<div class='card'>";
-
- echo "<img class='immagini' src='" . $dischi[$i]["poster"] . "'>";
- echo "<h3 class='titoloCard' >" . $dischi[$i]["titolo"] . "</h3>";
- echo "<p class='artistaCard' >".$dischi[$i]["artista"] ."</p>";
- echo "<p class='genereAnnoCard' >". $dischi[$i]["genere"]."  .  ".$dischi[$i]["anno"]."</p>";
- 
- echo "</div>";
-}}
 
 
 
@@ -114,9 +126,6 @@ echo"<div class='card'>";
 
 
 </div>
-
-
-    
-</body>
-
-</html>
+<script src="index.js"></script>
+>
+     -->
